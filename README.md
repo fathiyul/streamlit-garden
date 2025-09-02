@@ -30,16 +30,16 @@ uv run streamlit run <path_to_app>
 
 ```bash
 # Image recolorizer
-uv run streamlit run apps/image-processing/app-recolorizer.py
+uv run streamlit run apps/image_processing/app_recolorizer.py
 
 # Bayesian inference demo
-uv run streamlit run apps/math-demo/bayes_inference.py
+uv run streamlit run apps/math_demo/bayes_inference.py
 ```
 
 ## 📋 Applications
 
 ### Image Processing
-- **[Two-Color Recolorizer](apps/image-processing/app-recolorizer.py)** - Convert images to grayscale and apply custom two-color gradients with adjustable parameters
+- **[Two-Color Recolorizer](apps/image_processing/image_recolorizer.py)** - Convert images to grayscale and apply custom two-color gradients with adjustable parameters
 
 ### Mathematical Demos
-- **[Bayesian Inference](apps/math-demo/bayes_inference.py)** - Interactive Bayesian probability inference with Beta priors and posterior visualization
+- **[Bayesian Inference](apps/math_demo/bayes_inference.py)** - Interactive Bayesian probability inference with Beta priors and posterior visualization
