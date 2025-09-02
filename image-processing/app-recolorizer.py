@@ -94,7 +94,7 @@ def _apply_two_color_map(
     gray_rgb = np.repeat(arr[..., None], 3, axis=2)
     out = (1.0 - intensity) * gray_rgb + intensity * rgb
     out = np.clip(out, 0, 255).astype(np.uint8)
-    return Image.fromarray(out, mode="RGB")
+    return Image.fromarray(out)
 
 
 if uploaded is not None:
