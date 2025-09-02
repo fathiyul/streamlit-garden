@@ -4,6 +4,7 @@ from typing import Tuple
 import numpy as np
 from PIL import Image, ImageOps
 import streamlit as st
+from streamlit_image_comparison import image_comparison
 
 st.set_page_config(
     page_title="Two-Color Image Recolorizer", page_icon="🎨", layout="centered"
@@ -128,11 +129,27 @@ if uploaded is not None:
         mime="image/png",
     )
 
-    st.subheader("Original")
-    st.image(img_in, width="stretch")
-
-    st.subheader("Grayscale")
-    st.image(gray, width="stretch", clamp=True)
+    # Optional: Show grayscale separately if you want
+    with st.expander("View intermediate steps"):
+        # Before/After comparison
+        st.subheader("Before vs After Comparison")
+        image_comparison(
+            img1=img_in,
+            img2=colored,
+            label1="Original",
+            label2="Recolorized",
+            width=700,
+            starting_position=50,
+            show_labels=True,
+            make_responsive=True,
+        )
+        col1, col2 = st.columns(2)
+        with col1:
+            st.write("**Original**")
+            st.image(img_in, width="stretch")
+        with col2:
+            st.write("**Grayscale**")
+            st.image(gray, width="stretch")
 
 else:
     st.info("Upload an image to begin.")
